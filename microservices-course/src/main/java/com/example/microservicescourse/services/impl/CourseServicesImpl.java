@@ -37,4 +37,10 @@ public class CourseServicesImpl extends CommonServicesImpl<Course, CourseReposit
     public Iterable<Student> getStudentsById(List<Long> ids) {
         return studentClientFeign.getStudentsById(ids);
     }
+
+    @Override
+    @Transactional
+    public void deleteCourseStudentById(Long id) {
+        repository.deleteCourseStudentById(id);
+    }
 }

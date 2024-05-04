@@ -10,4 +10,6 @@ public interface StudentServices extends CommonServices<Student> {
     public List<Student> findByNameOrLastname(String term);
 
     public Iterable<Student> findStudentsById(Iterable<Long> ids);
+
+    public void deleteCourseStudentbyId(Long id);
 }

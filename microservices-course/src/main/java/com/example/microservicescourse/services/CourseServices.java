@@ -13,4 +13,6 @@ public interface CourseServices extends CommonServices<Course> {
     public Iterable<Long> findAssestmentIdsWithAnswersByStudents(Long studentId);
 
     public Iterable<Student> getStudentsById(List<Long> ids);
+
+    public void deleteCourseStudentById(Long id);
 }

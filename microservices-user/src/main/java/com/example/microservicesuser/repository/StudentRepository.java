@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
 
-    @Query("SELECT s FROM Student s WHERE s.name LIKE %?1% OR s.lastname LIKE %?1%")
+    @Query("SELECT s FROM Student s WHERE UPPER(s.name) LIKE UPPER(CONCAT('%', ?1, '%')) OR UPPER(s.lastname) LIKE UPPER(CONCAT('%', ?1, '%'))")
     public List<Student> findByNameOrLastname(String term);
 }

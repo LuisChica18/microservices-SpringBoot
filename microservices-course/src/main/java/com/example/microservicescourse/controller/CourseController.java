@@ -76,6 +76,12 @@ public class CourseController extends CommonController<Course, CourseServices> {
         return ResponseEntity.ok().body(course);
     }
 
+    @DeleteMapping("/delete-student/{id}")
+    public ResponseEntity<?> deleteCourseStudentbyId(@PathVariable Long id){
+        services.deleteCourseStudentById(id);
+        return ResponseEntity.noContent().build();
+    }
+
     @PutMapping("/{id}/add-students")
     public ResponseEntity<?> addStudentstoCourse(@RequestBody List<Student> students, @PathVariable Long id){
         Optional<Course> obj = services.findById(id);

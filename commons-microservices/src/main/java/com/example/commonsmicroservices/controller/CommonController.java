@@ -51,6 +51,10 @@ public class CommonController<E, S extends CommonServices<E>> {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id){
+        Optional<E> obj = services.findById(id);
+        if (obj.isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
         services.deleteById(id);
         return ResponseEntity.noContent().build();
     }
